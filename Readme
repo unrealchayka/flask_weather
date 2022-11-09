@@ -1,7 +1,7 @@
 установка 
 
 python3 -m venv venv
-pip install requarements.txt
+pip install -r requarements.txt
 запускаем фаил site.py
 
 переходим по url 127.0.0.1:5000/index
