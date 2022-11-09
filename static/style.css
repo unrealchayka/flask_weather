@@ -1,0 +1,34 @@
+h1{
+    font-family: 'Rubik One', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    background: linear-gradient(100deg, #021166 20%, #0062ff 50%, #8bdeff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0B2349;
+    display: table;
+    margin: 20px auto;
+}
+h1.blue{
+    background: linear-gradient(100deg, #021166 20%, #0062ff 50%, #8bdeff);
+    -webkit-background-clip: text
+}
+
+h1.white{
+    background: linear-gradient(100deg, #ffffff 20%, #ffffff 50%, #ffffff);
+    -webkit-background-clip: text
+}
+h1.orange{
+      background: linear-gradient(100deg, #f2ff00 20%, #ffe100 50%, #ff8400);
+      -webkit-background-clip: text;
+}
+
+h1.yellow{
+    background: linear-gradient(100deg, #00d5ff 20%, #d0ff00 50%, #f2ff00);
+      -webkit-background-clip: text;
+}
+
+h1.red{
+    background: linear-gradient(100deg, #ff8400 20%, #ff6a00 50%, #ff0000);
+      -webkit-background-clip: text;
+}

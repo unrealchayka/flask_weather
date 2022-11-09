@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/159/PNG/256/cloud_weather_22376.png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='style.css', v=1)}}">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    
+</head>
+
+<body class="bg-light" style="
+      background-image: url(https://searchthisweb.com/wallpaper/sunset_5120x3200_958k7.jpg);
+      background-size: 1800px;
+      background-position: 55% 0%
+      ">
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="/index" class="nav-link px-2 text-secondary">Home</a></li>
+              <!-- <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li> -->
+              <li><a href="/about" class="nav-link px-2 text-white">About</a></li>
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+    
+            <div class="text-end">
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
+              <button type="button" class="btn btn-warning">Sign-up</button>
+            </div>
+          </div>
+        </div>
+      </header>
+    <div class="container">
+      <main>
+
+        <div class="py-5 text-center">
+          <a href="/index"><img class="d-block mx-auto mb-4" src="https://cdn.icon-icons.com/icons2/159/PNG/256/cloud_weather_22376.png" alt="" width="72" height="70"></a>
+          <h1 class="blue">Погодное приложение</h1>
+        </div>
+            <form action="/index" method="post" class="card p-2" style="background-color: rgb(47, 47, 47);">
+              <div class="input-group">
+                <input type="text" id = "city" name = "city" class="form-control" placeholder="Введите город" ">
+                <button type="submit" class="btn btn-secondary" style="background-color: rgb(47, 47, 47);">Найти</button>
+              </div>
+            </form>
+        </div>
+      </main>
+      {% if context %}
+      {% if context.temp < 0 %}
+        
+      <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 32%; top: 400px;">
+        <div class="card p-3" style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6835012235034.560a8e5be9e14.jpg); background-position: 50% 95%;">
+          <figure class="p-3 mb-0" ></figure>
+            <blockquote class="blockquote">
+                <h1 class="blue" >Город: {{context.city}} <img src="http://openweathermap.org/img/w/{{context.icon}}.png" alt=""></p>
+                <h1 clas="blue">Температура: {{context.temp}}&#176;</h1>
+            </blockquote>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      {% elif context.temp < 10%}
+
+      <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 32%; top: 400px;">
+        <div class="card p-3" style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6835012235034.560a8e5be9e14.jpg); background-position: 6% 32%;">
+          <figure class="p-3 mb-0" ></figure>
+            <blockquote class="blockquote">
+                <h1 class = "yellow">Город: {{context.city}} <img src="http://openweathermap.org/img/w/{{context.icon}}.png" alt=""></p>
+                <h1 class = "yellow">Температура: {{context.temp}}&#176;</h1>
+            </blockquote>
+
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      {% elif context.temp < 20%}
+
+      <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 32%; top: 400px;">
+        <div class="card p-3" style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6835012235034.560a8e5be9e14.jpg); background-position: 95% 3%;">
+          <figure class="p-3 mb-0" ></figure>
+            <blockquote class="blockquote">
+                <h1 class = "orange">Город: {{context.city}} <img src="http://openweathermap.org/img/w/{{context.icon}}.png" alt=""></p>
+                <h1 class = "orange">Температура: {{context.temp}}&#176;</h1>
+            </blockquote>
+
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      {% elif context.temp < 30%}
+
+      <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 32%; top: 400px;">
+        <div class="card p-3" style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6835012235034.560a8e5be9e14.jpg); background-position: 8% 3%;">
+          <figure class="p-3 mb-0" ></figure>
+            <blockquote class="blockquote">
+                <h1 class="red" white;">Город: {{context.city}} <img src="http://openweathermap.org/img/w/{{context.icon}}.png" alt=""></p>
+                <h1 class="red">Температура: {{context.temp}}&#176;</h1>
+            </blockquote>
+
+            {% else%}
+
+            <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 32%; top: 400px;">
+              <div class="card p-3" style="background-image: url(https://phonoteka.org/uploads/posts/2021-05/1622149289_16-phonoteka_org-p-lava-art-krasivo-16.jpg); background-position: 50% 50%; background-size: 700px;">
+                <figure class="p-3 mb-0" ></figure>
+                  <blockquote class="blockquote">
+                      <h1 class="white">Город: {{context.city}} <img src="http://openweathermap.org/img/w/{{context.icon}}.png" alt=""></p>
+                      <h1 class="white">Температура: {{context.temp}}&#176;</h1>
+                  </blockquote>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      {% endif %}
+      {% else %}
+      <div>
+      <div>
+      <h1 class = "orange" style="position: absolute; left:  13%; top: 400px;">Введите название города для получения информации</h1>
+      <h1 class = "yellow" style="position: absolute; left: 18%; top: 440px;">или выберите из списка популярных городов</h1>
+      <h1 class = "blue" style="position: absolute; left: 46%; top: 480px;">&#8595;       &#8595;        &#8595;</h1>
+      </div>
+      </div>
+      {% endif %}
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="form-validation.js"></script>
+    
+    </body>
+</html>
